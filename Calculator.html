@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Calculator</title>
+    <style>
+        button{
+            width: 50px;
+            background-color: aqua;
+            color: black;
+            font-size: large;
+        }
+        #screen{
+            border-width: 1px;
+            border-color: black;
+            border-style: solid;
+
+        }
+        .container
+        {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        .main_body{
+            display: flex;
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="container">
+        <div class="main_body">
+            <table>
+                <tbody>
+                <tr>
+                    <td id="screen" colspan="8">0</td>
+                </tr>
+                <tr>
+                    <td><button onclick="backtozero()">AC</button><td>
+                    <td><button onclick="show_on_screen()">(</button><td>
+                    <td><button onclick="show_on_screen()">)</button><td>
+                    <td><button onclick="show_on_screen()">+</button><td>
+                </tr>
+                <tr>
+                    <td><button onclick="show_on_screen()">7</button><td>
+                    <td><button onclick="show_on_screen()">8</button><td>
+                    <td><button onclick="show_on_screen()">9</button><td>
+                    <td><button onclick="show_on_screen()">-</button><td>
+                </tr>
+                <tr>
+                    <td><button onclick="show_on_screen()">4</button><td>
+                    <td><button onclick="show_on_screen()">5</button><td>
+                    <td><button onclick="show_on_screen()">6</button><td>
+                    <td><button onclick="show_on_screen()">*</button><td>
+                </tr>
+                <tr>
+                    <td><button onclick="show_on_screen()">1</button><td>
+                    <td><button onclick="show_on_screen()">2</button><td>
+                    <td><button onclick="show_on_screen()">3</button><td>
+                    <td><button onclick="show_on_screen()">/</button><td>
+                </tr>
+                <tr>
+                    <td><button onclick="show_on_screen()">%</button><td>
+                    <td><button onclick="show_on_screen()">0</button><td>
+                    <td><button onclick="show_on_screen()">.</button><td>
+                    <td><button onclick="calculate()">=</button><td>
+                </tr>
+                </tbody>
+            </table>
+            <script>
+                var content = "";
+                function show_on_screen() {
+                    content += event.srcElement.innerHTML;
+                    if(content.length >= 25){
+                        alert("长度过长");
+                        backtozero();
+                    }
+                    document.getElementById("screen").innerText = content;
+                }
+                function backtozero() {
+                    content = 0;
+                    document.getElementById("screen").innerText = 0;
+                }
+                function calculate() {
+                    try{
+                        var result = eval(content);
+                        if(result != "Infinity"&&result != "-Infinity"){
+                            document.getElementById("screen").innerText = result;
+                        }
+                        else{
+                            alert("计算错误！")
+                        }
+                    }
+                    catch (err) {
+                        alert("无法计算！")
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</main>
+</body>
+</html>
