@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.esm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.esm.bundle.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+        }
+
+        ul {
+            list-style: none;
+            height: 0;
+            display: inline;
+        }
+
+        li {
+            padding: 0 8px;
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .header-nav {
+            position: relative;
+            height: 42px;
+        }
+
+        .nav-background {
+            position: absolute;
+            background-position: center -10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            background-image: url("http://i0.hdslb.com/bfs/archive/c694a5cc0761ffb2965a0a87954ede38d7e5770c.png");
+            filter: blur(4px);
+        }
+
+        .nav-mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: hsla(0, 0%, 100%, 0.4);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            width: 1160px;
+            height: 42px;
+            z-index: 2;
+        }
+
+        .nav-leftcol {
+            display: inline;
+            float: left;
+        }
+
+        .nav-home {
+            margin-top: 0px;
+            position: relative;
+            margin-left: -10px;
+            padding-right: 12px;
+            float: left;
+            line-height: 42px;
+            height: 42px;
+            text-align: center;
+            display: flex;
+            float: left;
+        }
+
+        .nav-homelink {
+            display: block;
+            padding-left: 20px;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .nav-icon {
+            display: inline-block;
+            background-image: url("http://static.hdslb.com/images/base/icons.png");
+            position: absolute;
+            background-position: -919px -88px;
+            background-repeat: no-repeat;
+            width: 17px;
+            height: 14px;
+            left: 6px;
+            top: 12px;
+        }
+
+        .nav-leftli {
+            display: block;
+            float: left;
+            line-height: 42px;
+        }
+
+        .nav-leftlinks {
+            text-decoration: none;
+            color: #222;
+            margin: auto;
+        }
+
+        .nav-mobile {
+            float: left;
+            padding: 0 10px;
+            text-align: center;
+            height: 42px;
+            position: relative;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-mobileicon {
+            width: 16px;
+            height: 21px;
+            display: inline-block;
+            line-height: 42px;
+            text-align: center;
+            vertical-align: center;
+            background-image: url("http://static.hdslb.com/images/base/icons.png");
+            background-position: -1371px -1175px;
+            margin: auto;
+        }
+
+        #hide-mobile1 {
+            position: absolute;
+            top: 42px;
+            margin-left: -32px;
+            display: none;
+            width: 259px;
+            height: 174px;
+            background: url("http://s1.hdslb.com/bfs/static/jinkela/home/images/orcode-frame.png");
+        }
+
+        #hide-mobile2 {
+            position: absolute;
+            top: 73px;
+            margin-left: -32px;
+            display: none;
+            width: 97px;
+            height: 97px;
+            left: 92px;
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGEAAABhCAIAAABJZFj0AAADeklEQVR4nO2c224bMQxEs4X//5fdBwdbRyHnQikoWsx5Cbyry0YeURQp7/V8Pj8C5NfffoB/gMfrz3Vdbs1bgGXd5e6Rwq/r98Xy443SL+auGx1xHu8fRNukaGG53n3bZZWyha5f/FTdQ2KWpqIjTsaI8yiv4tmkMJsXpd3tpt7yERdTHqCrEh1xah1Z4CV5oVySu48De/8TLnF0xMkYcQ7MtRczU6q4zt30GbjOM6IjTq2jnWXe2kaVZXb2eqIJt/7B6IiTMeJ8mWs7VlB0eRaswmVH1t3ZPxgdca59x3R/Dd5fIrpiR9zu6IiTMeLUc20/6tw1uLMvHUQarSBMVyY64nzJi3RBifcy3+8qwZDloxj8xigOvUVibHMyRpzPuWaJ3ErvKS1bXoxl0UUPvnzI2GyD2mbvWFYl5WAZVFx3lhexeoyOOBkjDtrTYlXPEvz7Bh4XPjKpl38wOuKg80ez3MaC9T3vr99iv6C774WjI07GiPPFz75Z8jCKdTwSS1Q8+C5DqZhnK1QSm21Q50UU+4e/kyOOAmhfv172q3f3ER0pZIw4yD+yfOWujDUFynAortKB1xnc70J0xLnex9vKKf9pwjndAcp0xXYUKtaNjnbJGHGkePYg6SjeLTta6s4ylIrnhXfU8bMNJr+pGRzfw4VnJ0+sfpe71qIUHXEyRhzkH2FEB/pgePvnQuNl+zfREQedP7L87IWdI3hi4nsQ7rCCPzfRESdjxEG/qREDC+Vd6wTXzC/DrnNp72feU3TEQWf9bnbyeUuVRWWYRQtKOnNms7HYoyNOxohjnM/G4GTRkZNUloEvu7OIzTYw9muzL3BHKVg4g7viLnIhOuJkjDjGb9fFwx7l3Q4rFm5lKAfB0sSz50g6GuQYRFntJ0KwnI+cSImOOBkjjjTXsKrLmSiKXNm1YquvnMztrovef3TEOfbbdXGD9mKWgLEM/L4XfhMdcTJGnEuxiyXWdnHH5cH9dgxCNPGz5xx7F2t3dxCEttoXjXR5XdwMREecjBHnwLtYFQ9oJ1SCwx14cRDXopyr3eXY+yE7FGO50CWglRhb11EpZ5ySvImOOBkjzvl3sZZWU9w9Wgmf7gHKwvgudsqjI86Bd7Eqx4JmDFxnXNc6jnQTHXEyRpxj72JdGhGj3XqD4nVxe2w9QHTEORDP/u+JjjgZI85vPxPMw8KtcIgAAAAASUVORK5CYII=");
+        }
+
+        .nav-upload {
+            position: relative;
+            float: right;
+            display: inline;
+            width: 58px;
+            height: 42px;
+            margin-left: 8px;
+        }
+
+        .upload-link {
+            text-decoration: none;
+            color: white;
+            background-color: #fb7299;
+            font-size: 14px;
+            text-align: center;
+            display: block;
+            height: 48px;
+            width: 100%;
+            line-height: 42px;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .nav-rightcol {
+            display: inline;
+            float: right;
+        }
+
+        .nav-rightli {
+            display: inline-block;
+            float: left;
+            line-height: 42px;
+            height: 42px;
+        }
+
+        .nav-rightlinks {
+            text-decoration: none;
+            color: #222;
+            margin: auto;
+        }
+
+        .face {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-top: 3px;
+        }
+
+        .header-background {
+            height: 170px;
+            margin-top: -42px;
+            width: 100%;
+            background-image: url("http://i0.hdslb.com/bfs/archive/c694a5cc0761ffb2965a0a87954ede38d7e5770c.png");
+            background-position: center -10px;
+            z-index: 1;
+        }
+
+        .background-container {
+            position: relative;
+            height: 170px;
+            width: 1160px;
+            margin: 0 auto;
+        }
+
+        .head-logo {
+            position: absolute;
+            height: 105px;
+            width: 220px;
+            left: 24px;
+            top: 55px;
+            background-image: url("http://i0.hdslb.com/bfs/archive/4480ba540c48c301a1ee1da7d6dae6ebdcb51487.png");
+        }
+
+        .background-search {
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            height: 32px;
+            width: 268px;
+            padding: 2px 2px 2px 72px;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        .link-ranking {
+            background-color: #fff;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 4px;
+            width: 68px;
+            text-decoration: none;
+        }
+
+        .link-rankspan {
+            padding-left: 26px;
+            display: inline-block;
+            color: #f25d8e;
+            background-image: url("http://static.hdslb.com/images/base/icons.png");
+            background-position-x: -659px;
+            background-position-y: -655px;
+        }
+
+        .header-menu {
+            width: 1160px;
+            height: 50px;
+            margin: 0 auto;
+            margin-bottom: 4px;
+            padding: 8px 0 0 0;
+            position: relative;
+            border-bottom: #fff 1px solid;
+        }
+
+        .menu-item {
+            margin-right: 22px;
+            float: left;
+            position: relative;
+            display: block;
+            height: 50px;
+        }
+        .page-card{
+            margin: 0 0 20px 20px;
+            float: left;
+            width: 160px;
+            height: 100px;
+            position: relative;
+        }
+        .card-mark{
+            color: #ffffff;
+            height: 40px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            position: absolute;
+            top: 68px;
+            word-break: break-all;
+        }
+        em{
+            display: inline-block;
+            border-left: 1px solid #b8c0cc;
+            height: 10px;
+            margin: 12px 15px 0;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <nav class="header-nav">
+        <div class="nav-background"></div>
+        <div class="nav-mask"></div>
+        <div class="nav-content">
+            <div class="nav-leftcol">
+                <ul>
+                    <li class="nav-home" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-homelink" title="主站" href="Imitation.html">
+                            <i class="nav-icon"></i>
+                            主站
+                        </a>
+                    </li>
+                    <li class="nav-leftli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-leftlinks" title="画友" href="http://h.bilibili.com" target="_blank">画友</a>
+                    </li>
+                    <li class="nav-leftli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-leftlinks" title="来探索bilibili音乐的世界吧~"
+                           href="http://www.bilibili.com/audio/home/?type=10" target="_blank">音频</a>
+                    </li>
+                    <li class="nav-leftli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null;document.getElementById('hide-game').style.display='none'"
+                        onmousemove="document.getElementById('hide-game').style.display='block'">
+                        <a class="nav-leftlinks" title="游戏中心" href="http://game.bilibili.com" target="_blank">游戏中心</a>
+                        <div id="hide-game" style="position: absolute;top: 42px;margin-left: -8px;display: none">
+                            <iframe src="https://www.bilibili.com/page-proxy/game-nav.html" scrolling="no"
+                                    frameborder="0" height="260px" width="680px"></iframe>
+                        </div>
+                    </li>
+                    <li class="nav-leftli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null;document.getElementById('hide-live').style.display='none'"
+                        onmousemove="document.getElementById('hide-live').style.display='block'">
+                        <a class="nav-leftlinks" title="直播" href="http://live.bilibili.com" target="_blank">直播</a>
+                        <div id="hide-live" style="position: absolute;top: 42px;margin-left: -8px;display: none">
+                            <iframe src="https://live.bilibili.com/blackboard/dropdown-menu.html" scrolling="no"
+                                    frameborder="0" height="266px" width="528px"></iframe>
+                        </div>
+                    </li>
+                    <li class="nav-leftli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-leftlinks" title="会员购"
+                           href="http://show.bilibili.com/platform/home.html?msource=pc_web" target="_blank">会员购</a>
+                    </li>
+                    <li class="nav-leftli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null;document.getElementById('hide-BML').style.display='none'"
+                        onmousemove="document.getElementById('hide-BML').style.display='block'">
+                        <a class="nav-leftlinks" title="BML" href="http://bml.bilibili.com/2018/index.html#/bmlbj"
+                           target="_blank">BML</a>
+                        <div id="hide-BML"
+                             style="position: absolute;top: 42px;margin-left: -8px;display: none;width: 375px;padding: 12px;background-color: #fff">
+                            <a href="http://bml.bilibili.com/2018/index.html#/bmlbj" target="_blank">
+                                <img src="http://s1.hdslb.com/bfs/static/jinkela/home/images/bmlbj2.png">
+                            </a>
+                            <a href="http://bml.bilibili.com/2018/index.html#/" target="_blank">
+                                <img src="http://s1.hdslb.com/bfs/static/jinkela/home/images/bmlsh2.png">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-mobile" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null;document.getElementById('hide-mobile1').style.display='none';document.getElementById('hide-mobile2').style.display='none'"
+                        onmousemove="document.getElementById('hide-mobile1').style.display='block';document.getElementById('hide-mobile2').style.display='block'">
+                        <i class="nav-mobileicon"></i>
+                        <a class="nav-leftlinks" title="下载APP" href="http://app.bilibili.com" target="_blank">下载APP</a>
+                        <div id="hide-mobile1"></div>
+                        <div id="hide-mobile2"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-upload" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                 onmouseleave="this.style.backgroundColor= null">
+                <a class="upload-link" href="http://member.bilibili.com/v/video/submit.html">投 稿</a>
+            </div>
+            <div class="nav-rightcol">
+                <ul style="margin-right: -40px">
+                    <li class="nav-rightli" style="width: 58px;text-align: center;padding: 0">
+                        <a href="http://space.bilibili.com">
+                            <img class="face"
+                                 src="http://i0.hdslb.com/bfs/face/36f6c927bd7e128e55d85b0a94732b3dfb3d7b96.jpg@72w_72h.jpg">
+                        </a>
+                    </li>
+                    <li class="nav-rightli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-rightlinks" href="http://account.bilibili.com/account/big" target="_blank">大会员</a>
+                    </li>
+                    <li class="nav-rightli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-rightlinks">消息</a>
+                    </li>
+                    <li class="nav-rightli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-rightlinks">动态</a>
+                    </li>
+                    <li class="nav-rightli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-rightlinks">稍后再看</a>
+                    </li>
+                    <li class="nav-rightli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-rightlinks">收藏夹</a>
+                    </li>
+                    <li class="nav-rightli" onmouseover="this.style.backgroundColor='hsla(0, 0%, 100%, 0.4)'"
+                        onmouseleave="this.style.backgroundColor= null">
+                        <a class="nav-rightlinks">历史</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="header-background">
+        <div class="background-container">
+            <div class="background-search">
+                <form class="search-form"
+                      style="background-color: hsla(0,0%,100%,0.88);display: block;height: 32px;border-radius: 4px">
+                    <input type="text" placeholder="佐贺偶像是传奇"
+                           style="float: left;width: 200px;height: 32px;line-height: 32px;padding: 0 12px;border: 0;background-color: transparent">
+                    <button type="submit"
+                            style="position: absolute;display: block;top: 0px;right: 0px;width: 48px;height: 32px;background-image: url('http://static.hdslb.com/images/base/icons.png');background-position-x: -653px;background-position-y: -720px;border: 0;background-color: transparent;"></button>
+                </form>
+                <a class="link-ranking" href="http://www.bilibili.com/ranking" target="_blank">
+                    <span class="link-rankspan">排行榜</span>
+                </a>
+            </div>
+            <a class="head-logo" href="Imitation.html"></a>
+        </div>
+    </div>
+    <div class="header-menu">
+        <ul>
+            <li style="display: flex;position: relative;float: left;margin-right: 18px;height: 50px;">
+                <a href="Imitation.html"
+                   style="width: auto;text-align: center;background: url('http://static.hdslb.com/images/base/icons.png') -660px -1170px no-repeat;">
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        首页
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/douga/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        动画
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/anime/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">129</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        番剧
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/guochuang/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">101</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        国创
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/music/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        音乐
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/dance/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">426</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        舞蹈
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/technology/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        科技
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/life/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        生活
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/kichiku/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">66</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        鬼畜
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/fashion/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        时尚
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/ad/ad/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">205</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        广告
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/ent/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        娱乐
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="http://www.bilibili.com/v/cinephile/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">999+</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        影视
+                    </div>
+                </a>
+            </li>
+            <li class="menu-item" style="margin-right: 18px">
+                <a href="http://www.bilibili.com/v/cinephile/">
+                    <div style="position: absolute;top: 8px;left: 0px;height: 14px;width: 100%;text-align: center;">
+                        <span style="display: inline-block;vertical-align: top;background-color: #ffafc9;border-radius: 3px;height: 12px;line-height: 14px;padding: 1px 3px;font-family: sans-serif;color: #fff;background-image: none">434</span>
+                    </div>
+                    <div style="top: 15px;line-height: 20px;position: relative;display: inline-block;height: 40px;padding-top: 8px;vertical-align: center;text-decoration: none;color: #222;">
+                        放映厅
+                    </div>
+                </a>
+            </li>
+            <li style="margin-right: 6px;width: 40px;text-align: center;float: left;display: inline-block;position: relative;height: 50px;padding: 0;">
+                <a href="http://www.bilibili.com/read/home" style="display: inline-block;position: relative">
+                    <i style="background: url('http://static.hdslb.com/images/base/icons.png') -87px -1814px no-repeat;width: 18px;height: 18px;margin: 3px auto 2px;display: block"></i>
+                    <span style="display: inline-block;vertical-align: center;color: #222">专栏</span>
+                </a>
+            </li>
+            <li style="margin-right: 6px;width: 40px;text-align: center;float: left;display: inline-block;position: relative;height: 50px;padding: 0;">
+                <a href="http://www.bilibili.com/square" style="display: inline-block;position: relative">
+                    <i style="background: url('http://static.hdslb.com/images/base/icons.png') -87px -2006px no-repeat;width: 18px;height: 18px;margin: 3px auto 2px;display: block"></i>
+                    <span style="display: inline-block;vertical-align: center;color: #222">广场</span>
+                </a>
+            </li>
+            <li style="margin-right: 6px;width: 40px;text-align: center;float: left;display: inline-block;position: relative;height: 50px;padding: 0;">
+                <a href="http://live.bilibili.com" style="display: inline-block;position: relative">
+                    <i style="background: url('http://static.hdslb.com/images/base/icons.png') -87px -1878px no-repeat;width: 18px;height: 18px;margin: 3px auto 2px;display: block"></i>
+                    <span style="display: inline-block;vertical-align: center;color: #222">直播</span>
+                </a>
+            </li>
+            <li style="margin-right: 6px;width: 40px;text-align: center;float: left;display: inline-block;position: relative;height: 50px;padding: 0;">
+                <a href="http://www.bilibili.com/blackroom/" style="display: inline-block;position: relative">
+                    <i style="background: url('http://static.hdslb.com/images/base/icons.png') -87px -1942px no-repeat;width: 18px;height: 18px;margin: 3px auto 2px;display: block"></i>
+                    <span style="display: inline-block;vertical-align: center;color: #222">小黑屋</span>
+                </a>
+            </li>
+        </ul>
+        <div style="position: absolute;right: 0;top: 0;height: 50px;padding: 4px 0;">
+            <a style="width: 49px;height: 40px"
+               href="https://www.bilibili.com/blackboard/activity-haoxiangyin-pc.html#/">
+                <img src="http://i0.hdslb.com/bfs/archive/6e1db3139e3e01269e79eb6718b85fa77f924aee.gif">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="content-container" style="width: 1160px;margin: 0 auto;display: block;">
+    <div style="padding-bottom: 40px;height: 220px">
+        <div class="swiper-container" style="width: 440px;height: 220px;float: left;border-radius: 4px">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://www.bilibili.com/blackboard/activity-NBAdianbo.html" target="_blank"
+                       style="width: 280px;color: #fff;text-decoration: none;left: 0;bottom: 0;line-height: 35px;font-size: 14px;position: absolute;padding-left: 10px">b站首个NBA视频征稿活动</a>
+                    <a href="https://www.bilibili.com/blackboard/activity-NBAdianbo.html" target="_blank">
+                        <img src="http://i0.hdslb.com/bfs/archive/b8a7cd0abbcbaa8f6ddc51d65b8d40ffbbdfb12f.jpg">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.bilibili.com/read/cv1342572?from=1002" target="_blank"
+                       style="width: 280px;color: #fff;text-decoration: none;left: 0;bottom: 0;line-height: 35px;font-size: 14px;position: absolute;padding-left: 10px">没想到你居然是这样的索菲！</a>
+                    <a href="https://www.bilibili.com/read/cv1342572?from=1002" target="_blank">
+                        <img src="http://i0.hdslb.com/bfs/archive/29511ba9360b0c9a9f91146cc7deaffda94a5c5a.jpg">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.bilibili.com/read/cv1338113/" target="_blank"
+                       style="width: 280px;color: #fff;text-decoration: none;left: 0;bottom: 0;line-height: 35px;font-size: 14px;position: absolute;padding-left: 10px">我爱火锅!!! 从爱言叶到杀戮的天使</a>
+                    <a href="https://www.bilibili.com/read/cv1338113/" target="_blank">
+                        <img src="http://i0.hdslb.com/bfs/archive/4a5740a21f1cc0044f1012bf35e59fd38f048484.jpg">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.bilibili.com/blackboard/topic/activity-JeIFXVWMY.html" target="_blank"
+                       style="width: 280px;color: #fff;text-decoration: none;left: 0;bottom: 0;line-height: 35px;font-size: 14px;position: absolute;padding-left: 10px">来，Get一双透视眼！</a>
+                    <a href="https://www.bilibili.com/blackboard/topic/activity-JeIFXVWMY.html" target="_blank">
+                        <img src="http://i0.hdslb.com/bfs/archive/3fb137db0c200ca5b6ed9274094c34d2ca3838bf.png">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.bilibili.com/read/cv1348175?from=1002" target="_blank"
+                       style="width: 280px;color: #fff;text-decoration: none;left: 0;bottom: 0;line-height: 35px;font-size: 14px;position: absolute;padding-left: 10px">S8小组赛第八日</a>
+                    <a href="https://www.bilibili.com/read/cv1348175?from=1002" target="_blank">
+                        <img src="http://i0.hdslb.com/bfs/archive/3ad6a8fddc204c4b9b4a2d41c6d41d02d3067751.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="width: 720px;height: 220px;float: right;">
+            <div class="page-card">
+                <img src="http://i2.hdslb.com/bfs/archive/f0d646bf49136921082aee02ddac6e07aa857eff.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【番声】本期视频用来打UP主自己的脸！有关于我做过的十月新番毒奶视频的跟进报道</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i1.hdslb.com/bfs/archive/53b2a0cce085d34c6f3cebc843f237c97e93d642.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【刀剑超完全混剪】不羁者的高歌 // We Are——虚拟世界唯一的真实</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i1.hdslb.com/bfs/archive/b4966de8e02d04cc6f0feb0107e92c174ccb3b13.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【新番吐个爽】哇！原来我也有女朋友，只是你们看不到！</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i1.hdslb.com/bfs/archive/7ad879c6f8a1fa1742c02c95aa142a14e25e0610.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">Akari来了哦/Mirai Akari【唱了首歌】</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i1.hdslb.com/bfs/archive/a390de7094f42632dc3124f22fbcc35c401bb253.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【泛式】十月新番大吐槽第二弹！新的老婆已经出现怎么能够停滞不舔！「新番妙妙屋10」</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i1.hdslb.com/bfs/archive/a0f4f037638035821e1bbd4d138a080aecf1242a.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【原宿风MMD】[A]ddiction【初音ミク】</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i0.hdslb.com/bfs/archive/e8c6f2e49aa08fe0bef34956fe49baf629834e08.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【新番爱吐槽】神操作？新番女主竟当场去世！</p>
+            </div>
+            <div class="page-card">
+                <img src="http://i1.hdslb.com/bfs/archive/c93fd50d11a5ad3b28f545f662497d00ec3a9058.jpg@160w_100h.jpg" style="border-radius: 4px;">
+                <p class="card-mark">【番声】可爱的史莱姆的正确使用方法！十月新番跟进报告（其二）</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style="float: left;width: 900px">
+            <div style="padding-bottom: 15px;top: 0;height: 30px">
+                <i style="width: 40px;height: 40px;margin-right: 10px;float: left;margin-top: -10px;display: inline-block;background-image: url('http://static.hdslb.com/images/base/icons.png');background-position: -141px -75px;"></i>
+                <span style="font-size: 24px !important;line-height: 24px;font-weight: 400;float: left;">推广</span>
+            </div>
+            <div style="height: 168px;display: block;width: 100%;">
+                <div style="width: 160px;height: 148px;float: left;margin: 0 20px 20px 0;position: relative">
+                    <img style="width: 160px;height: 100px;display: block;border-radius: 4px;" src="http://i0.hdslb.com/bfs/archive/6ec6b9b0a453c4404822de5bd1411abe0c28e92d.jpg@160w_100h.jpg">
+                    <p style="height: 40px;line-height: 20px;padding-top: 8px">别人家的车展，在这片草地上，你最喜欢哪一台？</p>
+                </div>
+                <div style="width: 160px;height: 148px;float: left;margin: 0 20px 20px 0;position: relative">
+                    <img style="width: 160px;height: 100px;display: block;border-radius: 4px;" src="http://i0.hdslb.com/bfs/archive/4683d35ffeda0080a2e2eee2575a5baae4bbc27a.jpg@160w_100h.jpg">
+                    <p style="height: 40px;line-height: 20px;padding-top: 8px">【奇/排/仙/漏/沈/魂/贰/书】下一话心动——恋爱表白曲</p>
+                </div>
+                <div style="width: 160px;height: 148px;float: left;margin: 0 20px 20px 0;position: relative">
+                    <img style="width: 160px;height: 100px;display: block;border-radius: 4px;" src="http://i0.hdslb.com/bfs/archive/c3d32fef481f08cc13db4196cf6552ed8789e296.png@160w_100h.png">
+                    <p style="height: 40px;line-height: 20px;padding-top: 8px">柯基：施主，能赏我几个果子吃吗？</p>
+                </div>
+                <div style="width: 160px;height: 148px;float: left;margin: 0 20px 20px 0;position: relative">
+                    <img style="width: 160px;height: 100px;display: block;border-radius: 4px;" src="http://i0.hdslb.com/bfs/vc/i181015ws3jb7cuwsb8g08xzm0u9gd6s_0008.jpg@160w_100h.jpg">
+                    <p style="height: 40px;line-height: 20px;padding-top: 8px">戴上耳机，沉浸在音乐的陶醉中，一不小心耳朵竟然会聋！</p>
+                </div>
+                <div style="width: 160px;height: 148px;float: left;margin: 0 20px 20px 0;position: relative">
+                    <img style="width: 160px;height: 100px;display: block;border-radius: 4px;" src="http://i0.hdslb.com/bfs/archive/a6b29c803727d7059f68a714502373663a763bab.jpg@160w_100h.jpg">
+                    <p style="height: 40px;line-height: 20px;padding-top: 8px">【生醉大闸蟹】这个蟹黄比海胆还好吃！</p>
+                </div>
+            </div>
+        </div>
+        <div style="width: 260px;float: right;display: block;">
+            <div style="height: 34px;position: relative;line-height: 34px;padding: 0 10px;background: #e5e9ef;border-radius: 4px;text-align: center">
+                <a href="http://www.bilibili.com/video/online.html" target="_blank" style="text-decoration: none;color: #6d757a;">在线人数：3879551</a>
+                <em></em>
+                <a href="http://www.bilibili.com/newlist.html" target="_blank" style="text-decoration: none;color: #6d757a;">最新投稿：47856</a>
+            </div>
+            <div style="margin-top: 10px;width: 160px;height: 150px;position: relative">
+                <a href="https://www.bilibili.com/read/cv1337703" target="_blank">
+                    <img width="260" height="150" src="http://i0.hdslb.com/bfs/archive/5eb0f1efb070519b787d645c3aaa1fb2edb966ba.jpg" style="border-radius: 4px;">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: true,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            bulletElement : 'li',
+        },
+    });
+    /*var mySwiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+            bulletElement: 'li',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },
+            renderBullet: function (index, className) {
+                var url = "'http://static.hdslb.com/images/base/icons.png'";
+                switch(index){
+                    case 0:text='<i style="background-image=url('+url+');width: 18px;height: 18px; background-position: -855px -790px'+'"></i>'break;
+                    case 1:text='贰';break;
+                    case 2:text='叁';break;
+                    case 3:text='肆';break;
+                    case 4:text='伍';break;
+                }
+                return '<span class="' + className + '">' + text + '</span>';
+            },
+        },
+    });*/
+</script>
+</body>
+</html>
